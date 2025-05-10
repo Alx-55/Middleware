@@ -35,13 +35,13 @@ async def log_time_and_limit_requests(request: Request, call_next: Callable):  #
     REQUEST_HISTORY[client_ip] = history
 
     response = await call_next(request)
-    end = time.perf_counter() - start  # конец
+    end = time.perf_counter() - start  # конец (в определении времени на запрос)
     print(f"Время обработки запроса: {end}")
     return response
 
 
 @app.get('/users', tags=['Пользователи'])  # ручка для получения id-шника и имени пользователя (выбран как-бы самый простой запрос для
-                                                # определения времени его исполнения таймером).
+                                        # определения времени его исполнения таймером и подсчёта количества "обращений" к нему пользователем).
 async def get_users():
     time.sleep(4)  # для улучшения визуализации времени исполнения этой функции сделаем "заметным" (4 сек.) и результат будем видеть в логе в терминале
     return [{'id': 1, 'name': 'Alexandr'}]
