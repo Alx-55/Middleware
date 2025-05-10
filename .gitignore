@@ -1,0 +1,25 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Log files
+*.log
+
+# Virtual environments
+venv/
+env/
+.venv/
+.env/
+
+# VS Code / PyCharm / IDEs
+.idea/
+.vscode/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# SQLite DB (если не нужна в репо)
+*.db
